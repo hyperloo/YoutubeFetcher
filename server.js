@@ -8,8 +8,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //Body PArser
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => res.json({ msg: "Server started" }));
-
 if (process.env.NODE_ENV === "production") {
   //Set a static folder
   app.use(express.static("client/build"));
