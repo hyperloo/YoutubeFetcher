@@ -1,0 +1,55 @@
+.video-item {
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer;
+}
+
+.video-item img {
+  max-width: 180px;
+  height: 100px;
+}
+
+.card div img {
+  border-radius: 0 !important;
+}
+.card {
+  border-radius: 0 !important;
+  transition: all 0.3s ease !important;
+}
+.card::before,
+.card::after {
+  transition: all 0.3s ease !important;
+}
+.card:hover :before,
+.card:hover :after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 45px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  background: #777;
+  -webkit-box-shadow: 0 35px 20px #777;
+  -moz-box-shadow: 0 35px 20px #777;
+  box-shadow: 0 35px 20px #777;
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  -o-transform: rotate(-8deg);
+  -ms-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+}
+.card:hover :after {
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  -o-transform: rotate(8deg);
+  -ms-transform: rotate(8deg);
+  transform: rotate(8deg);
+  right: 10px;
+  left: auto;
+}
+
+.item:hover {
+  transform: scale(1.02);
+}
