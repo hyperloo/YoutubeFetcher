@@ -12,46 +12,46 @@ class App extends React.Component {
   }
   atHome = async () => {
     const response = await Youtube.get("/search", {
-      params: { ...baseParams, q: "" }
+      params: { ...baseParams, q: "" },
     });
-    console.log(response.data.items);
+    //console.log(response.data.items);
     this.setState({
       videos: response.data.items,
       pos: "home",
       size: "small",
-      selectedVideo: null
+      selectedVideo: null,
     });
   };
-  onSearchSubmit = async term => {
+  onSearchSubmit = async (term) => {
     const response =
       term === ""
         ? await Youtube.get("/search", {
             params: {
               ...baseParams,
               order: "date",
-              channelId: this.state.selectedVideo.snippet.channelId
-            }
+              channelId: this.state.selectedVideo.snippet.channelId,
+            },
           })
         : await Youtube.get("/search", {
-            params: { ...baseParams, q: term }
+            params: { ...baseParams, q: term },
           });
 
-    console.log(response.data.items);
+    //console.log(response.data.items);
     this.setState({
       selectedVideo: null,
       videos: response.data.items,
       pos: "search",
-      size: "small"
+      size: "small",
     });
   };
 
-  onVideoSelect = async video => {
+  onVideoSelect = async (video) => {
     await this.setState({
       selectedVideo: video,
       pos:
         video.id.kind === "youtube#channel" && this.state.pos !== "channel"
           ? "channel"
-          : "view"
+          : "view",
     });
     if (this.state.pos === "channel") this.onSearchSubmit("");
     window.scrollTo(0, 0);
@@ -83,6 +83,9 @@ class App extends React.Component {
             onSubmit={this.onSearchSubmit}
             pos={this.state.pos}
           />
+        </div>
+        <div className="ui segment center aligned">
+          Scroll Down For APP Info.....
         </div>
         <div className="ui grid">
           <div className="ui row">
@@ -122,7 +125,7 @@ class App extends React.Component {
                   overflow: "scroll",
                   scrollbarWidth: "none",
                   border: "1px solid #e1dfdf",
-                  marginTop: "15px"
+                  marginTop: "15px",
                 }}
                 className="sixteen wide column"
               >
@@ -139,7 +142,7 @@ class App extends React.Component {
                   overflow: "scroll",
                   scrollbarWidth: "none",
                   border: "1px solid #e1dfdf",
-                  marginTop: "15px"
+                  marginTop: "15px",
                 }}
                 className={
                   this.state.pos === "search" || this.state.size === "wide"
@@ -154,6 +157,47 @@ class App extends React.Component {
                 />
               </div>
             )}
+          </div>
+          <div className="ui row">
+            <div className="ui segment">
+              <div className="ui large header">Description of the app</div>
+              <div class="ui divider"></div>
+              <div className="ui medium header">Developed By Himanshu</div>
+              <br />
+              <div className="ui segment">
+                This App is a React app which fetches data from "YouTube Data
+                API v3" which is a Google's free API.
+                <br />
+                This app has following features:
+                <br />
+                1. It fetches a list of 15 YouTube's videos at the homepage. 2.
+                It has a search bar which sends request to the API about the
+                search and fetches results and displays them as a list of
+                Results with "Thumbnail", "Video Title" & "Channel Name". 3. If
+                the clicked result is a video, then the video plays in a
+                "iframe" and there is a sidebar contains more videos.
+                <br />
+                a. It also has a feature of changing Screen Size (Small / Large)
+                by just clicking the buttons.
+                <br />
+                4. If the clicked result is a channel result, then it fetches
+                the channel's latest videos and one can the choose from it.
+                <br />
+                <br />
+                <b>Note</b>: This app is not good at responsiveness to the
+                screen as it was a learning app.
+                <br />
+                Explore more.....
+                <br />
+                <div class="content">
+                  Portfolio ...
+                  <a href="http://tekin2.tk/" target="_blank">
+                    {" "}
+                    http://tekhin2.tk
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
