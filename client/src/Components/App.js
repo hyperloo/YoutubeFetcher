@@ -165,17 +165,19 @@ class App extends React.Component {
               <div className="ui medium header">Developed By Himanshu</div>
               <br />
               <div className="ui segment">
-                This App is a React app which fetches data from "YouTube Data
-                API v3" which is a Google's free API.
+                This App is a<b> React app</b> which fetches data from "
+                <b>YouTube Data API v3</b>" which is a Google's free API.
+                <br />
+                It Uses <b>Axios</b> for queries,
                 <br />
                 This app has following features:
                 <br />
-                1. It fetches a list of 15 YouTube's videos at the homepage. 2.
-                It has a search bar which sends request to the API about the
-                search and fetches results and displays them as a list of
-                Results with "Thumbnail", "Video Title" & "Channel Name". 3. If
-                the clicked result is a video, then the video plays in a
-                "iframe" and there is a sidebar contains more videos.
+                1. It fetches a list of 15 YouTube's videos at the homepage.
+                <br /> 2. It has a search bar which sends request to the API
+                about the search and fetches results and displays them as a list
+                of Results with "Thumbnail", "Video Title" & "Channel Name".{" "}
+                <br /> 3. If the clicked result is a video, then the video plays
+                in a "iframe" and there is a sidebar contains more videos.
                 <br />
                 a. It also has a feature of changing Screen Size (Small / Large)
                 by just clicking the buttons.
